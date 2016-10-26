@@ -1,5 +1,6 @@
 var q = 'event-handler';
 var open = require('amqplib').connect('amqp://localhost');
+var slackChannel = require('../channels/slack')
 
 module.exports = {
   listen: function() {
@@ -11,7 +12,10 @@ module.exports = {
       return ch.assertQueue(q).then(function(ok) {
         return ch.consume(q, function(msg) {
           if (msg !== null) {
-            console.log(msg.content.toString());
+            slackChannel.send(msg.content.toString(), function(err, response) {
+              if (err)
+                console.log('error from slack : ' + err);
+            })
             ch.ack(msg);
           }
         });
