@@ -6,7 +6,7 @@ server.log
 logs
 .DS_Store
 .sass-cache
-config/local.js
+secrets.js
 .cache
 
 ############################
