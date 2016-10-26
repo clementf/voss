@@ -1,0 +1,37 @@
+node_modules
+npm-debug.log
+bower_components
+sources_graphiques
+server.log
+logs
+.DS_Store
+.sass-cache
+config/local.js
+.cache
+
+############################
+# tmp, editor & OS files
+############################
+.tmp
+*.swo
+*.swp
+*.swn
+*.swm
+.DS_STORE
+*#
+*~
+.idea
+nbproject
+
+
+############################
+# Tests
+############################
+testApp
+coverage
+
+
+############################
+# Other
+############################
+.node_history

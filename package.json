@@ -1,0 +1,14 @@
+{
+  "name": "event-handling",
+  "version": "0.1.0",
+  "description": "Gathers all events from your app and redistribute them to your favorite channels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.4.2"
+  }
+}
