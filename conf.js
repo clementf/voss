@@ -1,11 +1,19 @@
 var secrets = require('./secrets');
 
 module.exports = {
-  channels : {
-    slack : {
+
+  eventTypes: {
+
+  },
+  channels: {
+    slack: {
       channel: secrets.slack.channel,
       username: secrets.slack.username,
       uri: secrets.slack.webhookUri,
+    },
+    keen: {
+      projectId: secrets.keen.projectId,
+      writeKey: secrets.keen.writeKey
     }
   }
 }
