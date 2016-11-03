@@ -4,7 +4,7 @@
   "description": "Gathers all events from your app and redistribute them to your favorite channels",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,9 @@
     "keen-tracking": "^1.0.3",
     "mongodb": "^2.2.11",
     "slack-node": "^0.1.8"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
   }
 }

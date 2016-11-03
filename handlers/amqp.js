@@ -1,30 +1,10 @@
 var open = require('amqplib').connect('amqp://localhost');
-var slackChannel = require('../channels/slack')
-var keenChannel = require('../channels/keen')
-var mongoChannel = require('../channels/mongo')
+var validator = require('validator');
+var slackChannel = require('../channels/slack');
+var keenChannel = require('../channels/keen');
+var mongoChannel = require('../channels/mongo');
 
 var queueName = 'event-handler';
-
-var checkMessage = function(message){
-  //check non null msg
-  if(message == undefined || message == null){
-    console.log('Invalid message : null');
-    return false;
-  }
-  if(!message.eventType){
-    console.log('Invalid message : event type not specified');
-    return false;
-  }
-  if(!message.friendlyMessage){
-    console.log('Invalid message : friendly message not specified');
-    return false;
-  }
-  if(!message.content || (Object.keys(message.content).length === 0 && message.content.constructor === Object)){
-    console.log('Invalid message : content is empty');
-    return false;
-  }
-  return true;
-}
 
 module.exports = {
   listen: function() {
@@ -36,7 +16,7 @@ module.exports = {
 
       return ch.assertQueue(queueName).then(function(ok) {
         return ch.consume(queueName, function(msg) {
-          if(checkMessage(msg)){
+          if(validator.checkMessage(msg)){
             message = JSON.parse(msg.content.toString());
 
             slackChannel.send(message.friendlyMessage, function(err, response) {
