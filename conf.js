@@ -14,6 +14,9 @@ module.exports = {
     keen: {
       projectId: secrets.keen.projectId,
       writeKey: secrets.keen.writeKey
+    },
+    mongo: {
+      url: secrets.mongo.url
     }
   }
 }

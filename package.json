@@ -11,6 +11,7 @@
   "dependencies": {
     "amqplib": "^0.4.2",
     "keen-tracking": "^1.0.3",
+    "mongodb": "^2.2.11",
     "slack-node": "^0.1.8"
   }
 }

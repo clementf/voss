@@ -2,6 +2,7 @@ var q = 'event-handler';
 var open = require('amqplib').connect('amqp://localhost');
 var slackChannel = require('../channels/slack')
 var keenChannel = require('../channels/keen')
+var mongoChannel = require('../channels/mongo')
 
 module.exports = {
   listen: function() {
@@ -23,6 +24,10 @@ module.exports = {
             keenChannel.send(message.eventType, message.content, function(err, res){
               if (err)
                 console.log('error from keen : ' + err);
+            });
+            mongoChannel.send(message.eventType, message, function(err, res){
+              if (err)
+                console.log('error from mongo : ' + err);
             });
             ch.ack(msg);
           }
