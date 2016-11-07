@@ -1,3 +1,4 @@
 module.exports = {
-  amqp : require('./amqp.js'),
+  amqp: require('./amqp.js'),
+  http: require('./http.js')
 }

@@ -1,5 +1,5 @@
 var open = require('amqplib').connect('amqp://localhost');
-var validator = require('validator');
+var validator = require('./validator.js');
 var slackChannel = require('../channels/slack');
 var keenChannel = require('../channels/keen');
 var mongoChannel = require('../channels/mongo');
@@ -12,7 +12,7 @@ module.exports = {
     open.then(function(conn) {
       return conn.createChannel();
     }).then(function(ch) {
-      console.log('listening for incoming messages');
+      console.log('AMQP api listening for incoming messages');
 
       return ch.assertQueue(queueName).then(function(ok) {
         return ch.consume(queueName, function(msg) {

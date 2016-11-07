@@ -5,6 +5,9 @@ module.exports = {
   eventTypes: {
 
   },
+  http: {
+    port: 3465
+  },
   channels: {
     slack: {
       channel: secrets.slack.channel,
