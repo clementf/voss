@@ -16,8 +16,9 @@ module.exports = {
 
       return ch.assertQueue(queueName).then(function(ok) {
         return ch.consume(queueName, function(msg) {
-          if(validator.checkMessage(msg)){
-            message = JSON.parse(msg.content.toString());
+          message = JSON.parse(msg.content.toString());
+
+          if(validator.checkMessage(message)){
 
             slackChannel.send(message.friendlyMessage, function(err, response) {
               if (err)
